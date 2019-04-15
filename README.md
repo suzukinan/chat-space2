@@ -27,7 +27,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: fales, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -40,11 +40,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|Name|string|index: true, null: fales, unique: true|
+|name|string|index: true, null: false, unique: true|
 |Email|string|null: false|
 
 ### Association
-- has_many :groups, through: ,members
+- has_many :groups, through: :members
 - has_many :messages
 - has_many :members
 
@@ -54,10 +54,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|Name|string|null: fales, foreign_key: true|
+|name|string|null: false|
 
 ### Association
-- has_many :groups, through: ,members
+- has_many :groups, through: :members
 - has_many :messages
 - has_many :members
 
@@ -69,7 +69,7 @@ Things you may want to cover:
 |------|----|-------|
 |body|text||
 |image|string||
-|user_id|integer|null: fales, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
