@@ -1,9 +1,9 @@
 .flash-block
   .notice グループを作成しました
-.block
-  .left-block
-    .left-left-block
-      %p.left-left-block__user-name suzuki
+.wrapper
+  .chat-side
+    .side-header
+      %p.side-header__user-name suzuki
       %ul.user-menu
         %li.user-menu__edit-user
           = link_to '/' do
@@ -11,13 +11,13 @@
         %li.user-menu__new-group
           = link_to '/' do
             %i.fa.fa-cog
-    .left-main-blocks
+    .groups
       = link_to '/' do
-        .left-main-block
-          %p.left-main-block-name arakawasensei
-          %p.left-main-block-message こんにちは
-  .right-block
-    .right-right-block
+        .group
+          %p.group__group-name arakawasensei
+          %p.group__latest-message こんにちは
+  .chat-main
+    .main-header
       .current-group{"data-group_id" => "#"}
         %h2.current-group__name arakawasensei
         %ul.member-list
@@ -27,9 +27,9 @@
           %li.member-list__member jiro
           %li.member-list__member daizy
       = link_to '/' do
-        .right-right-block__edit-btn
+        .main-header__edit-btn
           Edit
-    .right-main-blocks
+    .messages
       .message
         .upper-info
           %p.upper-info__user suzuki
