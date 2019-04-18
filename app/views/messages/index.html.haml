@@ -1,0 +1,45 @@
+.flash-block
+  .notice グループを作成しました
+.block
+  .left-block
+    .left-left-block
+      %p.left-left-block__user-name suzuki
+      %ul.user-menu
+        %li.user-menu__edit-user
+          = link_to '/' do
+            %i.fa.fa-edit
+        %li.user-menu__new-group
+          = link_to '/' do
+            %i.fa.fa-cog
+    .left-main-blocks
+      = link_to '/' do
+        .left-main-block
+          %p.left-main-block-name arakawasensei
+          %p.left-main-block-message こんにちは
+  .right-block
+    .right-right-block
+      .current-group{"data-group_id" => "#"}
+        %h2.current-group__name arakawasensei
+        %ul.member-list
+          Member :
+          %li.member-list__member ara
+          %li.member-list__member suzuki
+          %li.member-list__member jiro
+          %li.member-list__member daizy
+      = link_to '/' do
+        .right-right-block__edit-btn
+          Edit
+    .right-main-blocks
+      .message
+        .upper-info
+          %p.upper-info__user suzuki
+          %p.upper-info__date 2019/4/16(Tue) 20:00:55
+        %p.message__text こんにちは
+    .form
+      %form.new-message{"accept-charset" => "UTF-8",method: "post"}
+        .input-box
+          %input#message_content.input-box__text{name: "message", placeholder: "type a message", type: "text"}/
+          %label.image-label{for: "message_image"}
+            %i.fa.fa-image
+            %input#message_image.image-label__input{name: "message", type: "file"}/
+        %input.new-message__submit-btn{name: "commit", type: "submit", value: "Send"}/
