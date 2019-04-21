@@ -1,0 +1,17 @@
+-# .message
+-#   .upper-info
+-#     %p.upper-info__user suzuki
+-#     %p.upper-info__date 2019/4/16(Tue) 20:00:55
+-#   %p.message__text こんにちは
+
+.message
+  .upper-info
+    .upper-info__user-name
+      = message.user.name
+    .upper-info__date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .message__text
+    - if message.content.present?
+      %p.message__text__content
+        = message.content
+    = image_tag message.image.url, class: 'message__text__image' if message.image.present?
