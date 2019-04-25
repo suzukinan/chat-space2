@@ -25,15 +25,14 @@
 
   .chat-main
     .main-header
-      .current-group{"data-group_id" => "#"}
+      .current-group
         %h2.current-group__name
           = @group.name
         %ul.member-list
           Member :
           = render partial: 'group', collection: @groups
-      = link_to edit_group_path(current_user) do
-        .main-header__edit-btn
-          Edit
+      = link_to edit_group_path(@group.id) do
+        .main-header__edit-btn Edit
 
 
 
