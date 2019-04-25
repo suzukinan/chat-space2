@@ -29,8 +29,9 @@
         %h2.current-group__name
           = @group.name
         %ul.member-list
-          Member :
-          = render partial: 'group', collection: @groups
+          - @group.users.each do |user|
+            Menber :
+            = user.name
       = link_to edit_group_path(@group.id) do
         .main-header__edit-btn Edit
 
