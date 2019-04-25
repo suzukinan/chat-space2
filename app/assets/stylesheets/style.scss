@@ -63,11 +63,13 @@
   &__group-name {
     font-size: 15px;
     margin-bottom: 5px;
+    color: white;
   }
   
   &__latest-message {
     font-size: 11px;
     margin-bottom: 40px;
+    color: white;
   }
 }
 
@@ -133,13 +135,19 @@ a {
     font-size: 14px;
     margin-bottom: 10px;
   }
+
+    &__content {
+      color: $black;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
 }
 
 .upper-info {
   display: flex;
   margin-bottom: 10px;
 
-  &__user {
+  &__user-name {
     color: #434a54;
     font-size: 16px;
     font-weight: bold;
@@ -152,66 +160,105 @@ a {
   }
 }
 
-.form {
-  height: 90px;
-  padding: 20px 40px;
-  background-color: #ddd;
-}
+// .form {
+//   height: 90px;
+//   padding: 20px 40px;
+//   background-color: #ddd;
+// }
 
-.new-message {
-  display: flex;
+// .new-message {
+//   display: flex;
 
-  &__submit-btn {
-    width: 100px;
-    height: 50px;
-    padding: 0 30px;
-    margin-left: 15px;
-    background-color: #38aef0;
-    color: white;
-    cursor: pointer;
-  }
-}
+//   &__submit-btn {
+//     width: 100px;
+//     height: 50px;
+//     padding: 0 30px;
+//     margin-left: 15px;
+//     background-color: #38aef0;
+//     color: white;
+//     cursor: pointer;
+//   }
+// }
 
-.input-box {
-  position: relative;
-  width: 100%;
-  display: flex;
+// .input-box {
+//   position: relative;
+//   width: 100%;
+//   display: flex;
 
-  &__text {
-    height: 50px;
-    width: 100%;
-    padding: 0 40px 0 10px;
-    color: #434a54;
-    border-style: none;
-  }
-}
+//   &__text {
+//     height: 50px;
+//     width: 100%;
+//     padding: 0 40px 0 10px;
+//     color: #434a54;
+//     border-style: none;
+//   }
+// }
 
-.fa-photo:before, .fa-image:before, .fa-picture-o:before {
-  content: "\f03e";
-}
+// .fa-photo:before, .fa-image:before, .fa-picture-o:before {
+//   content: "\f03e";
+// }
 
-.image-label{
-  position: absolute;
-  right: 10px;
-  line-height: 50px;
+// .image-label{
+//   position: absolute;
+//   right: 10px;
+//   line-height: 50px;
 
-  &__input{
-    display: none;
-  }
-}
+//   &__input{
+//     display: none;
+//   }
+// }
 
-.fa {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  .image-label__input{
-    display: none;
-  }
-}
+// .fa {
+//   display: inline-block;
+//   font: normal normal normal 14px/1 FontAwesome;
+//   font-size: inherit;
+//   text-rendering: auto;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   .image-label__input{
+//     display: none;
+//   }
+// }
 
-.fa-cog, .fa-edit {
+.icon {
   color: #ffffff;
 }
+
+
+.form {
+  background-color: #DDDDDD;
+  box-sizing: border-box;
+  height: 90px;
+  padding: 20px 50px 20px 40px;
+  &__message {
+    border: none;
+    float: left;
+    height: 50px;
+    width: calc(100% - 150px);
+    padding: 0 40px 0 10px;
+  }
+  &__mask {
+    background-color: $white;
+    float: left;
+    height: 50px;
+    padding-right: 10px;
+    &__image {
+      font-size: 20px;
+      line-height: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+  }
+  &__submit {
+    background-color: $light_blue;
+    border: none;
+    color: $white;
+    float: right;
+    font-size: 16px;
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 30px;
+  }
+}
+
