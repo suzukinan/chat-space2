@@ -3,20 +3,20 @@ $(document).on('turbolinks:load', function(){
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
     var html = `<div class="message" data-id="${message.id}">
-                  <div class="message__detail">
-                    <p class="message__detail__current-user-name">
+                  <div class="upper-info">
+                    <p class="upper-info__user-name">
                       ${message.user_name}
                     </p>
-                    <p class="message__detail__date">
+                    <p class="upper-info__date">
                       ${message.date}
                     </p>
                   </div>
-                  <p class="message_body">
-                    <div>
+                  <div class="message__text">
+                    <p class="message__text__content">
                     ${content}
-                    </div>
+                    </p>
                     ${img}
-                  </p>
+                  </div>
                 </div>`
   return html;
   }
@@ -42,5 +42,38 @@ $(document).on('turbolinks:load', function(){
     .fail(function(data){
       alert('エラーが発生したためメッセージは送信できませんでした。');
     })
-  })
+  });
+
+
+   // 自動更新 //
+  $(function() {
+      $(function() {
+          if(location.href.match(/\/groups\/\d+\/messages/)) {
+              setInterval(update, 5000);
+          }
+      });
+      function update() {
+          if($('.message')[0]) {
+              var message_id = $('.message').last().data('id');
+          }
+          $.ajax({
+              url: location.href,
+              type: 'GET',
+              data: {id: message_id},
+              dataType :'json'
+          })
+          .done(function(data) {
+              if (data.length !== 0 ){
+                $.each(data, function(i, data) {
+                  var html = buildHTML(data);
+                  $('.messages').append(html);
+                  $(".messages").animate({scrollTop:$('.messages')[0].scrollHeight});
+                })
+              }
+          })
+          .fail(function() {
+              alert('自動更新に失敗しました')
+          })
+      }
+  });
 });

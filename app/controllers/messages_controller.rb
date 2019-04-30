@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
     respond_to do |format|
       format.html
-      format.json{@new_message = @messages.where('id > ?', params[:message_id])}
+      format.json{@new_message = @messages.where('id > ?', params[:id])}
     end
   end
 
@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to group_messages_path(params[:group_id]) }
         format.json
       end
+      flash[:notice] = 'メッセージが送信されました'
     else
         @messages = @group.messages.includes(:user)
         flash.now[:alert] = 'メッセージを入力してください'
