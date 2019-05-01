@@ -2,8 +2,6 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def index
-    # app/views/messages/index.html.haml を表示する
-    # render template: "messages/index"
   end
 
   def new
