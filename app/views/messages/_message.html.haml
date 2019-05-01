@@ -4,7 +4,7 @@
 -#     %p.upper-info__date 2019/4/16(Tue) 20:00:55
 -#   %p.message__text こんにちは
 
-.message
+.message{data: {id: "#{message.id}"}}
   .upper-info
     .upper-info__user-name
       = message.user.name
