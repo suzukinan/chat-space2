@@ -53,7 +53,6 @@ $(function() {
     });
 
 
-
     $("#user-search-result").on("click", ".user-search-add", function () {
       var name = $(this).data("user-name");
       var id = $(this).data("user-id");
