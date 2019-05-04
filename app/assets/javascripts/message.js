@@ -33,12 +33,20 @@ $(document).on('turbolinks:load', function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html);
-      $('#message_content').val('');
-      $(".messages").animate({scrollTop:$('.messages')[0].scrollHeight});
-      $(".form__submit").prop('disabled', false);
+      if ( data.content != undefined ){
+        var html = buildHTML(data);
+        $('.messages').append(html);
+        $(".messages").animate({scrollTop:$('.messages')[0].scrollHeight});
+        // $('#message_content').val('');
+        $('.form__message').val('');
+        $('.form__submit').prop('disabled', false);
+      }
+      else{
+        alert("メッセージが空のためエラー")
+      }
+
     })
+
     .fail(function(data){
       alert('エラーが発生したためメッセージは送信できませんでした。');
     })
